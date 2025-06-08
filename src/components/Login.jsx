@@ -5,7 +5,7 @@ import {  createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProf
 import {auth} from "../utils/firebase";
 import { useDispatch } from 'react-redux';
 import {addUser} from '../utils/userSlice.js';
-import { USER_AVATAR } from '../utils/constatnts.js';
+import { BG_URL, USER_AVATAR } from '../utils/constatnts.js';
 
 const Login = () => {
 
@@ -51,7 +51,7 @@ const Login = () => {
           }).catch((error) => {
             setErrorMessage(error.message);
           });
-        console.log(user);
+        
     // ...
       })
         .catch((error) => {
@@ -67,7 +67,7 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
+    
     
     // ...
   })
@@ -85,7 +85,7 @@ const Login = () => {
     <div>
        <Header />
        <div className='absolute'>
-          <img  src="https://assets.nflxext.com/ffe/siteui/vlv3/914ad279-199e-4095-9c10-2409dc9e5e1b/web/IN-en-20250519-TRIFECTA-perspective_8f1ca896-9e49-4a4e-90f0-22fc49650bd9_large.jpg" width="auto" />
+          <img  src={BG_URL} width="auto" />
        </div>
        <form onSubmit={(e) => e.preventDefault()}  className='w-3/12 absolute p-12 bg-black/80 my-36 mx-auto right-0 left-0 text-white rounded-lg'>
         <h1 className='font-bold  text-3xl py-4' >{isSignInForm ?  "Sign In" : "Sign Up"}</h1>
